@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 移除数组 arr 中的所有值与 item 相等的元素。不要直接修改数组 arr，结果返回新的数组
+        //方法一
+        // function remove(arr, item) {
+        //     let arr2=[];
+        //     for(var i=0;i<arr.length;i++){
+        //         if(arr[i]!=item){
+        //             arr2.push(arr[i]);
+        //         }
+        //     }
+        //     return arr2;
+        // }  
+        // let arr2=remove([1,2,3,4,2],2);  
+        // console.log(arr2);
+
+        //方法二
+        // function removeWithoutCopy(arr, item) {
+        //     return arr.filter(function(val,key,arr){
+        //         if(val!=item){
+        //             return true;
+        //         }
+        //         else{
+        //             return false;
+        //         }
+        //     })
+            
+        // }
+        // let arr2=removeWithoutCopy([1,2,3,4,2],2);  
+        // console.log(arr2);
+        
+        // 移除数组 arr 中的所有值与 item 相等的元素，直接在给定的 arr 数组上进行操作，并将结果返回
+        function removeWithoutCopy(arr, item) {
+            for(var i=0;i<arr.length;i++){
+                if(arr[i]==item){
+                    arr.splice(i,1);
+                    i--;  //重要的一步
+                }
+            }
+            return arr;
+        }
+        let arr2=removeWithoutCopy([1,2,3,4,2],2);  
+        console.log(arr2);
+    </script>
+</body>
+</html>

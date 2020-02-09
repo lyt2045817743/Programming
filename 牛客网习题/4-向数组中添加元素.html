@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 在数组 arr 末尾添加元素 item。不要直接修改数组 arr，结果返回新的数组
+        function append(arr, item) {
+            let arr2=[...arr];
+            arr2.push(item);
+            return arr2;
+        } 
+        let arr=[1, 2, 3, 4];
+        let item=10;
+        console.log(append(arr,item));
+
+        //修改数组 arr
+        // function append(arr, item) {
+        //     arr.push(item);
+        //     return arr;
+        // }    
+        // let arr=[1, 2, 3, 4];
+        // let item=10;
+        // console.log(append(arr,item));
+        
+    </script>
+</body>
+</html>

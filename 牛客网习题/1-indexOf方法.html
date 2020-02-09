@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function indexOf(arr, item) {
+            for (var i=0;i<arr.length;i++) {
+                if (arr[i] == item) {
+                   return i;
+                }
+            }
+
+            if (i == arr.length) {
+               return -1;
+            }
+        }
+        // let str='[ 1, 2, 3, 4 ], 3'   
+        let str = prompt();
+        let arr = str.substring(1, str.length - 4);
+        let item = str.charAt(str.length - 1);
+
+        arr = arr.split(",");
+        for (var i = 0; i < arr.length; i++) {
+            arr[i] = parseInt(arr[i].trim());
+        }
+        console.log(indexOf(arr,item));
+
+
+    </script>
+</body>
+
+</html>
