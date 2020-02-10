@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //在数组 arr 的 index 处添加元素 item。不要直接修改数组 arr，结果返回新的数组
+        // function insert(arr, item, index) {
+        //     let arr2=[...arr];
+        //     arr2.splice(index,0,item);
+        //     return arr2;
+        // }    
+        // let arr=[1, 2, 3, 4];
+        // let item='z';
+        // let index=2;
+        // console.log(insert(arr, item, index));
+        
+        function insert(arr, item, index) {
+            return arr.slice(0,index).concat(item,arr.slice(index));
+        }
+
+        
+    </script>
+</body>
+</html>
