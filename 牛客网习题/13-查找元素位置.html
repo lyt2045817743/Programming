@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function findAllOccurrences(arr, target) {
+            let arr2=[];
+            for(var key of arr.keys()){
+                if(arr[key]==target){
+                    arr2.push(key);
+                }
+            }
+            return arr2;
+        }    
+        let arr=['a','b','c','d','e','f','a','b','c'];
+        let target='a';
+        console.log(findAllOccurrences(arr, target));
+        
+    </script>
+</body>
+</html>
