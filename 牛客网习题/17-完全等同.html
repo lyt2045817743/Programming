@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function identity(val1, val2) {
+            return val1===val2
+        }   
+        function identity2(val1, val2) {
+            return val1==val2
+        }   
+        var val1=1;
+        var val2="1";
+        console.log(identity(val1,val2));//false
+        console.log(identity2(val1,val2));//true
+    </script>
+</body>
+</html>
