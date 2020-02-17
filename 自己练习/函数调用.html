@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Bark</title>
+  </head>
+  <body>
+  </body>
+  <script>
+function bark(name, weight) {
+   if (weight > 20) {
+      console.log(name + " says WOOF WOOF");
+   } else {
+      console.log(name + " says woof woof");
+   }
+}
+bark("rover", "23");  //自动类型转换
+
+bark("spot", 13,0);  //不报错
+
+bark("spike"); //woof woof
+
+bark();  //undefined says woof woof
+  </script>
+</body>
+</html>
