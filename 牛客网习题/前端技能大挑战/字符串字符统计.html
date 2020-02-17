@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+        统计字符串中每个字符的出现频率，返回一个 Object，key 为统计字符，value 为出现频率<br>
+        1. 不限制 key 的顺序<br>
+        2. 输入的字符串参数不会为空<br>
+        3. 忽略空白字符<br>
+    <script>
+            function count(str) {
+                var obj={};
+                for(var i=0;i<str.length;i++){
+                    if(str.charAt(i)!=" "){
+                        if(obj[str.charAt(i)]!=undefined){
+                            obj[str.charAt(i)]++;
+                        }
+                        else{
+                            obj[str.charAt(i)]=1;
+                        }
+                    }
+                }
+                return obj;
+            }
+            console.log(count("hello world"));
+            
+    </script>
+</body>
+</html>
