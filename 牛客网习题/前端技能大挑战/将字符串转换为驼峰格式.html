@@ -11,7 +11,28 @@
         1. 以 - 为分隔符，将第二个起的非空单词首字母转为大写<br>
         2. -webkit-border-image 转换后的结果为 webkitBorderImage <br>
     <script>
+        function cssStyle2DomStyle(sName) {
+            var arr=sName.split('-');
+            console.log(arr);
+            var i=0;
+            var countWord=0;
+            while(i<arr.length){
+                if(arr[i]!=''){
+                    countWord++;
+                    if(countWord!=1){
+                        arr[i]=arr[i].charAt(0).toUpperCase()+arr[i].slice(1);
+                    }
+                }
+                i++;
+            }
             
+            sName=arr.join('');
+            return sName;
+        }
+        
+        var result=cssStyle2DomStyle('----webkit-border-image');
+        console.log(result);
+        
     </script>
 </body>
 </html>
