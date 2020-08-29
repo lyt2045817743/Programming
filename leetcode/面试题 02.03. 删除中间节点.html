@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script src="./数据结构定义/单链表.js"></script>
+    <script>
+        // 输入：单向链表a->b->c->d->e->f中的节点c
+        // 结果：不返回任何数据，但该链表变为a->b->d->e->f
+        var deleteNode = function(node) {
+            // 直接用下一个结点替换当前节点
+            node.val=node.next.val;
+            node.next=node.next.next;
+        };
+
+        // 测试数据初始化
+        let nodeList=createListNode([4,5,1,9]);
+        let node=nodeList.searchNode(5);
+
+        // 测试
+        deleteNode(node);
+        console.log(nodeList);
+    </script>
+</body>
+</html>
