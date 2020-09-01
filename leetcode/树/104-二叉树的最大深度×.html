@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script src="./数据结构定义/树/二叉树.js"></script>
+    <script>
+        var maxDepth = function(root) {
+            let count=0;
+            let queue=[];
+            let currentNode=root;
+            if(currentNode){
+                queue.push(currentNode);
+            }
+            while(currentNode){
+                let left=currentNode.left;
+                let right=currentNode.right;
+                if(left){
+                    queue.push(currentNode.left);
+                }
+                if(right){
+                    queue.push(currentNode.right);
+                }
+                if(queue.length!==0){
+                    currentNode=queue.shift();
+                }
+                else{
+                    currentNode=null;
+                }
+            }
+            return Math.ceil(Math.log2(count+1));
+        };
+
+        let tree=createTree([1,2,3,4,null,null,5]);
+        let count=maxDepth(tree);
+        console.log(count);
+        console.log(tree);
+        
+        
+
+    </script>
+</body>
+</html>
