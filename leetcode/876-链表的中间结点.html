@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script src="./数据结构定义/单链表.js"></script>
+    <script>
+        var middleNode = function(head) {
+            let size=0;
+            let currentNode=head;
+            while(currentNode){
+                size++;
+                currentNode=currentNode.next;
+            }
+            let i=0;
+            currentNode=head;
+            while(i<Math.floor(size/2)){
+                currentNode=currentNode.next;
+                i++;
+            }
+            return currentNode;
+        };
+
+        let nodeArr=[1,2,3,4,5];
+        let node=createListNode(nodeArr);
+        let returnNode=middleNode(node);
+        console.log(returnNode);
+    </script>
+</body>
+</html>

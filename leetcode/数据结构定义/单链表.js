@@ -1,10 +1,15 @@
+/**
+ * 普通单链表
+ */
+
 // 数据结构定义
 function ListNode(val) {
     this.val = val;
     this.next = null;
+    this.random = null; // 复杂链表专有
 }
 
-// 根据输入一个数组来创建链表
+// 根据输入的一个一维数组来创建链表
 function createListNode(arr){
     let node=new ListNode(arr[0]);
     let previousNode=node;
@@ -15,6 +20,7 @@ function createListNode(arr){
     }
     return node;
 }
+
 
 // 查找某一个结点
 ListNode.prototype.searchNode=function(val){
