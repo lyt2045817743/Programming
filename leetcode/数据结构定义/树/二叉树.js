@@ -9,6 +9,7 @@ function createTree(arr){
     let treeArr=[];
     let root=new Tree(arr.shift());
     treeArr.push(root);
+    // [15,7]  [node(20)]
 
     let currentNode;
     while(arr.length!==0){
@@ -30,7 +31,10 @@ function createTree(arr){
     return root;
 }
 
-// 先序遍历 递归
+// 先序遍历 递归  [3,9,20,null,null,15,7]
+// left: Tree {value: 9, left: Tree, right: null}
+// right: Tree {value: 20, left: Tree, right: Tree}
+// value: 3
 Tree.prototype.DLR1=function(){
     let arr=[];
     

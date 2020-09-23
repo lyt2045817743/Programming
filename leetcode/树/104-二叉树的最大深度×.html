@@ -7,38 +7,46 @@
     <title>Document</title>
 </head>
 <body>
-    <script src="./数据结构定义/树/二叉树.js"></script>
+    <script src="../数据结构定义/树/二叉树.js"></script>
     <script>
         var maxDepth = function(root) {
             let count=0;
-            let queue=[];
+            let max=0;
+            let stack=[];
+            stack.push(root);
+
             let currentNode=root;
-            if(currentNode){
-                queue.push(currentNode);
-            }
             while(currentNode){
-                let left=currentNode.left;
-                let right=currentNode.right;
-                if(left){
-                    queue.push(currentNode.left);
+                count++;
+                if(currentNode.left){
+                    stack.push(currentNode.left);
+                    currentNode=currentNode.left;
                 }
-                if(right){
-                    queue.push(currentNode.right);
-                }
-                if(queue.length!==0){
-                    currentNode=queue.shift();
+                else if(currentNode.right){
+                    stack.push(currentNode.right);
+                    currentNode=currentNode.right;
                 }
                 else{
-                    currentNode=null;
+                    if(max<count){
+                        max=count;
+                    }
+                    while(stack.length!=0){
+                        currentNode=stack.pop().right;
+                        if(currentNode){
+                            count--;
+                            break;
+                        }
+                    }
                 }
             }
-            return Math.ceil(Math.log2(count+1));
+
+            return count;
         };
 
         let tree=createTree([1,2,3,4,null,null,5]);
         let count=maxDepth(tree);
         console.log(count);
-        console.log(tree);
+        // console.log(tree);
         
         
 
