@@ -1,4 +1,4 @@
-const {tree} = require('./树数据结构定义');
+const { createTree } = require('../数据结构定义/树/二叉树')
 // 非递归
 function inorder(root){
     if(!root) { return; };
@@ -14,4 +14,4 @@ function inorder(root){
         p = curNode.right;
     }
 }
-inorder(tree);
+inorder(createTree([3,9,20,null,null,15,7]));
