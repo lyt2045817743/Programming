@@ -1,0 +1,10 @@
+const { createTree } = require('./二叉树');
+let root=createTree([3,9,20,16,null,15,7]);
+console.log("Tree is",root);
+console.log("DLR递归 is",root.DLR1());
+console.log("DLR非递归 is",root.DLR2());
+console.log("LDR递归 is",root.LDR1());
+console.log("LDR非递归 is",root.LDR2());
+console.log("LRD递归 is",root.LRD1());
+// console.log("LRD非递归 is",root.LRD2());
+console.log("层序遍历 is",root.widthOrder());

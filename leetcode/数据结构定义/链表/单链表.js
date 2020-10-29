@@ -9,19 +9,6 @@ function ListNode(val) {
     this.random = null; // 复杂链表专有
 }
 
-// 根据输入的一个一维数组来创建链表
-function createListNode(arr){
-    let node=new ListNode(arr[0]);
-    let previousNode=node;
-    for(let i=1;i<arr.length;i++){
-        let currentNode=new ListNode(arr[i]);
-        previousNode.next=currentNode;
-        previousNode=previousNode.next;
-    }
-    return node;
-}
-
-
 // 查找某一个结点
 ListNode.prototype.searchNode=function(val){
     if(this==null){
@@ -49,4 +36,16 @@ ListNode.prototype.printListNode=function(){
         currentNode=currentNode.next;
     }
     console.log(nodeArr);
+}
+
+// 根据输入的一个一维数组来创建链表
+exports.createListNode = function(arr){
+    let node=new ListNode(arr[0]);
+    let previousNode=node;
+    for(let i=1;i<arr.length;i++){
+        let currentNode=new ListNode(arr[i]);
+        previousNode.next=currentNode;
+        previousNode=previousNode.next;
+    }
+    return node;
 }

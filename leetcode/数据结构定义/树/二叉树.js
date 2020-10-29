@@ -1,40 +1,13 @@
-function Tree(value){
-    this.value=value;
+function Tree(val){
+    this.val=val;
     this.left=null;
     this.right=null;
 }
 
-// 根据传过来的一维数组创建树
-function createTree(arr){
-    let treeArr=[];
-    let root=new Tree(arr.shift());
-    treeArr.push(root);
-    // [15,7]  [node(20)]
-
-    let currentNode;
-    while(arr.length!==0){
-        currentNode=treeArr.shift();
-        let leftVal=arr.shift();
-        let rightVal=arr.shift();
-        if(leftVal!==null){
-            let left=new Tree(leftVal);
-            currentNode.left=left;
-            treeArr.push(left);
-        }
-        if(rightVal!==null){
-            let right=new Tree(rightVal);
-            currentNode.right=right;
-            treeArr.push(right);
-        }
-    }
-
-    return root;
-}
-
 // 先序遍历 递归  [3,9,20,null,null,15,7]
-// left: Tree {value: 9, left: Tree, right: null}
-// right: Tree {value: 20, left: Tree, right: Tree}
-// value: 3
+// left: Tree {val: 9, left: Tree, right: null}
+// right: Tree {val: 20, left: Tree, right: Tree}
+// val: 3
 Tree.prototype.DLR1=function(){
     let arr=[];
     
@@ -42,7 +15,7 @@ Tree.prototype.DLR1=function(){
          if(_this===null){
              return _this;
          }
-            arr.push(_this.value);
+            arr.push(_this.val);
             preOrder(_this.left);
             preOrder(_this.right);
     }
@@ -58,7 +31,7 @@ Tree.prototype.DLR2=function(){
 
     currentNode=this;
     while(currentNode){
-        arr.push(currentNode.value);
+        arr.push(currentNode.val);
         stack.push(currentNode);
         if(currentNode.left){
             currentNode=currentNode.left;
@@ -85,7 +58,7 @@ Tree.prototype.LDR1=function(){
             return _this;
         }
         middleOrder(_this.left);
-        arr.push(_this.value);
+        arr.push(_this.val);
         middleOrder(_this.right);
     }
     middleOrder(this);
@@ -107,7 +80,7 @@ Tree.prototype.LDR2=function(){
         else{
             while(stack.length!==0){
                 currentNode=stack.pop();
-                arr.push(currentNode.value);
+                arr.push(currentNode.val);
                 currentNode=currentNode.right;
                 if(currentNode){
                     break;
@@ -129,7 +102,7 @@ Tree.prototype.LRD1=function(){
         }
         afterOrder(_this.left);
         afterOrder(_this.right);
-        arr.push(_this.value);
+        arr.push(_this.val);
     }
     afterOrder(this);
 
@@ -170,7 +143,7 @@ Tree.prototype.widthOrder=function(){
 
     currentNode=this;
     while(currentNode){
-        arr.push(currentNode.value);
+        arr.push(currentNode.val);
         if(currentNode.left){
             queue.push(currentNode.left);
         }
@@ -185,4 +158,31 @@ Tree.prototype.widthOrder=function(){
     }
     
     return arr;
+}
+
+// 根据传过来的一维数组创建树
+exports.createTree = function(arr){
+    let treeArr=[];
+    let root=new Tree(arr.shift());
+    treeArr.push(root);
+    // [15,7]  [node(20)]
+
+    let currentNode;
+    while(arr.length!==0){
+        currentNode=treeArr.shift();
+        let leftVal=arr.shift();
+        let rightVal=arr.shift();
+        if(leftVal!==null){
+            let left=new Tree(leftVal);
+            currentNode.left=left;
+            treeArr.push(left);
+        }
+        if(rightVal!==null){
+            let right=new Tree(rightVal);
+            currentNode.right=right;
+            treeArr.push(right);
+        }
+    }
+
+    return root;
 }
