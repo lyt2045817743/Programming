@@ -1,7 +1,8 @@
-function Tree(val){
+function Tree(val, idx){
     this.val=val;
     this.left=null;
     this.right=null;
+    this.idx = idx;
 }
 
 // 先序遍历 递归  [3,9,20,null,null,15,7]
@@ -163,7 +164,8 @@ Tree.prototype.widthOrder=function(){
 // 根据传过来的一维数组创建树
 exports.createTree = function(arr){
     let treeArr=[];
-    let root=new Tree(arr.shift());
+    let curIdx = 1;
+    let root=new Tree(arr.shift(), curIdx);
     treeArr.push(root);
     // [15,7]  [node(20)]
 
@@ -173,14 +175,16 @@ exports.createTree = function(arr){
         let leftVal=arr.shift();
         let rightVal=arr.shift();
         if(leftVal!==null){
-            let left=new Tree(leftVal);
+            let left=new Tree(leftVal, ++curIdx);
             currentNode.left=left;
             treeArr.push(left);
+            // console.log('left', curIdx, left.val);
         }
         if(rightVal!==null){
-            let right=new Tree(rightVal);
+            let right=new Tree(rightVal, ++curIdx);
             currentNode.right=right;
             treeArr.push(right);
+            // console.log('right', curIdx, right.val);
         }
     }
 
