@@ -40,6 +40,7 @@ ListNode.prototype.printListNode=function(){
 
 // 根据输入的一个一维数组来创建链表
 exports.createListNode = function(arr){
+    if (!arr.length) return null;
     let node=new ListNode(arr[0]);
     let previousNode=node;
     for(let i=1;i<arr.length;i++){
