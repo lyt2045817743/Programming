@@ -32,8 +32,7 @@ var merge = function(nums1, m, nums2, n) {
 // 示例 4：
 // 输入：nums1 = [4,5,6,0,0,0], m = 6, nums2 = [1,2,3], n = 3
 // 输出：[1,2,3,4,5,6]
-const nums1 = [4,5,6,0,0,0], m = 6, nums2 = [1,2,3], n = 3;
-
+const nums1 = [4,5,6,0,0,0], m = 3, nums2 = [1,2,3], n = 3;
 merge(nums1, m, nums2, n);
 console.log(nums1);
 
