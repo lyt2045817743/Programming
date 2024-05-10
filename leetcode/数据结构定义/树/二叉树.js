@@ -163,6 +163,9 @@ Tree.prototype.widthOrder=function(){
 
 // 根据传过来的一维数组创建树
 exports.createTree = function(arr){
+    if (!arr.length) {
+        return null;
+    }
     let treeArr=[];
     let curIdx = 1;
     let root=new Tree(arr.shift(), curIdx);
